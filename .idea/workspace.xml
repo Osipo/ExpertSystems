@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="be0dbc35-b146-4552-95fe-9c29772fc89b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/exe/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/generators/NameGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/BreadthFirstSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/DepthFirstSearch.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Elem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/FactsBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/GraphVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Pair.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Resolver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Rule.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/RuleResolver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Vertex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/ArrStack.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/ElementType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/KeyValuePair.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedList$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedList$Iter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedQueue$QueueIterator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedQueue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedStack$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedStack$IterS.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedStack.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Action.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/BinaryNRVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/BinarySearchTree$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/BinarySearchTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/ChainedAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/LinkedBinaryNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/LinkedNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/LinkedTree$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/LinkedTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/NRSubVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/NRVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/PositionalTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/PrintAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/SequentialNRVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/SubVisitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Tree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Visitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/VisitorMode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/action/PrintVertex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/action/PrintlnAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/ExpertSystems.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/test/application-test.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/resources/test/logback-test.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/examples/example1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/exe/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/JsParserState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/JsonParseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/ProcessExp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/SimpleJsonParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/SomeData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonBoolean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonNull.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonRealNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/JsonString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/jsonParser/jsElements/StrLinkedHashMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/Base.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/InvalidBaseFormatException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/generators/NameGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Elem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/GraphVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Vertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/ArrStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/ElementType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/KeyValuePair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/Action.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/BinaryNRVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/BinarySearchTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/ChainedAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/LinkedBinaryNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/LinkedNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/LinkedTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/NRSubVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/NRVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/PositionalTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/PrintAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/SequentialNRVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/SubVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/Tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/Visitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/VisitorMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/action/PrintVertex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/action/PrintlnAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application-test.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/logback-test.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1huduOrrLHvWcOqsQmb0oCA1xzB" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Oleg\IdeaProjects\ExpertSystems\src\main\java\ru\osipov\expertSysLabs" />
+      <recent name="C:\Users\Oleg\IdeaProjects\ExpertSystems\build\libs" />
+      <recent name="C:\Users\Oleg\IdeaProjects\ExpertSystems\src\main\java\ru\osipov\expertSysLabs\structures\lists" />
+      <recent name="C:\Users\Oleg\IdeaProjects\ExpertSystems\src\main\java\ru\osipov\expertSysLabs\structures" />
+      <recent name="C:\Users\Oleg\IdeaProjects\ExpertSystems\src\test\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Oleg\IdeaProjects\ExpertSystems\localLibs" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.osipov.expertSysLabs.exe.App" />
+      <module name="ExpertSystems.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.osipov.expertSysLabs.exe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExpertSystems [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="Gradle.ExpertSystems [jar]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be0dbc35-b146-4552-95fe-9c29772fc89b" name="Default Changelist" comment="" />
+      <created>1600865132483</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600865132483</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

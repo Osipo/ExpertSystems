@@ -1,0 +1,8 @@
+{
+  "rules": [
+    {"premises": ["one","two"],"conclusion": "three","type": "and"},
+    {"premises": ["one"],"conclusion": "one"},
+    {"premises": ["dev","null"],"conclusion": "everything","type": "not"},
+    {"premises": ["dev","null"]}
+  ]
+}

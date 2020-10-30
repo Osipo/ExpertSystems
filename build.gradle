@@ -1,0 +1,71 @@
+plugins {
+    id 'java'
+    id 'application'
+    id "org.springframework.boot" version "2.1.7.RELEASE"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+}
+group 'ru.osipov.expertSysLabs'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+mainClassName = 'ru.osipov.expertSysLabs.exe.App'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+repositories {
+    mavenCentral()
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+build.mustRunAfter clean
+task stage(dependsOn: ['build', 'clean'])
+
+task copyToLib(type: Copy) {
+    into "$buildDir/libs"
+    from(configurations.compile)
+}
+
+stage.dependsOn(copyToLib)
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.1.7.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.junit.jupiter:junit-jupiter-api"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.1.8.RELEASE'
+    compile group: 'guru.nidi', name: 'graphviz-java', version: '0.15.1'
+    compile group: 'com.googlecode.juniversalchardet', name: 'juniversalchardet', version: '1.0.3'
+
+}
+test{
+    useJUnitPlatform()
+}
+jar {
+    manifest {
+        attributes('Implementation-Title': 'Expert Systems: Gradle Jar File ',
+                'Implementation-Version': '1.0.0',
+                'Main-Class': mainClassName)
+    }
+    archiveFileName = "${project.name}.jar"
+    enabled = true
+    from{
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it)}
+    }
+}
+bootJar {
+    archiveFileName = "${project.name}.jar"
+}

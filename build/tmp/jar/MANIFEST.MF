@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: Expert Systems: Gradle Jar File 
+Implementation-Version: 1.0.0
+Main-Class: ru.osipov.expertSysLabs.exe.App
+
