@@ -3,9 +3,14 @@ import javax.annotation.Nonnull;
 import java.util.Collection;
 import java.util.Iterator;
 
-//LIFO
+/**
+ * Dynamic Stack based on linked list.
+ * Implements LIFO insertion model of the list.
+ * @author Osipov O.K.
+ * @param <T> type of elements
+ */
 public class LinkedStack<T> implements Iterable<T> {
-    private ElementType<T> _head;
+    private ElementType<T> _head;//the top of the stack.
     private int _count;//count
 
     public LinkedStack(){
@@ -17,12 +22,12 @@ public class LinkedStack<T> implements Iterable<T> {
         return this._count == 0;
     }
 
-    //PUSH
+    //PUSH(S,item)
     public void push(T item){
         _count += 1;
         ElementType<T> node = new ElementType<T>();
         node.setElement(item);
-        node.setNext(_head);
+        node.setNext(_head);//add reference to the previous element.
         _head = node;
     }
 
@@ -34,7 +39,7 @@ public class LinkedStack<T> implements Iterable<T> {
         }
         else{
             ElementType<T> temp = _head;
-            _head = _head.getNext();
+            _head = _head.getNext();//move pointer to the one previously inserted element.
             _count -= 1;
         }
     }
@@ -48,6 +53,7 @@ public class LinkedStack<T> implements Iterable<T> {
         else return _head.getElement();
     }
 
+
     public void add(T item){
         push(item);
     }
@@ -58,6 +64,8 @@ public class LinkedStack<T> implements Iterable<T> {
         }
     }
 
+    //Remove element from the top of the stack
+    //IF value on the top of the stack IS EQUAL(item)
     public boolean remove(T item){
         if(isEmpty()){
             System.out.println("Error. Stack is empty");
@@ -82,15 +90,11 @@ public class LinkedStack<T> implements Iterable<T> {
         return false;
     }
 
-    public boolean isReadOnly(){
-        return false;
-    }
-
     public int size(){
         return _count;
     }
 
-    //MAKENULL
+
     public void clear(){
         this._head = null;
         this._count = 0;

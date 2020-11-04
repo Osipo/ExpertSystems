@@ -1,22 +1,40 @@
 package ru.osipov.expertSysLabs.structures.graphs;
 
+import java.util.NavigableSet;
 import java.util.Set;
+import java.util.TreeSet;
 
-public class Rule extends Vertex {
+/**
+ * The class for the rule (the second type of node in Digraph)
+ * Contains premises conclusion and the type of connection of premises (AND,OR,NOT)
+ * @author Osipov O.K.
+ */
+public class Rule implements Node{
 
     private Vertex conclusion;//result of rule.
-    private Set<Vertex> premises;//conditions.
+    private NavigableSet<Vertex> premises;//conditions.
     private RuleType type;//type of connection between conditions (OR, AND, NOT(c1 AND c2 AND ... AND cn))
+    private String name;
+    private static long id = -1L;
 
-    public Rule(Set<Vertex> premises,Vertex conclusion, RuleType type){
-       super();
-       this.name = "R_" + id;
-       this.premises = premises;
-       this.conclusion = conclusion;
-       this.type = type;
+    private int compareVertices(Vertex v1, Vertex v2){
+        long c1 = Long.parseLong(v1.getName().substring(2));
+        long c2 = Long.parseLong(v2.getName().substring(2));
+        return Long.compare(c1,c2);
     }
 
-    public Set<Vertex> getPremises(){
+    public Rule(){
+        this.name = "R_" + (++id);
+        this.premises = new TreeSet<>(this::compareVertices);
+        this.conclusion = null;
+        this.type = RuleType.AND;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public NavigableSet<Vertex> getPremises(){
         return this.premises;
     }
 
@@ -38,15 +56,20 @@ public class Rule extends Vertex {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return name.hashCode();
     }
 
     @Override
     public boolean equals(Object obj){
         if(obj instanceof Rule) {
             Rule b = (Rule) obj;
-            return premises.equals(b.premises) && conclusion.equals(b.conclusion) && type.equals(b.type);
+            return name.equals(b.name);
         }
         return false;
+    }
+
+    @Override
+    public NodeType getNodeType() {
+        return NodeType.RULE;
     }
 }

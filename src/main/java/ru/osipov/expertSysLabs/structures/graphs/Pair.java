@@ -1,6 +1,12 @@
 package ru.osipov.expertSysLabs.structures.graphs;
 
-
+/**
+ * A class which represent a tuple of values.
+ * Each value has its own type.
+ * @author Osipov O.K.
+ * @param <T> first type name
+ * @param <R> second type name
+ */
 public class Pair<T,R> {
     private T v1;
     private R v2;

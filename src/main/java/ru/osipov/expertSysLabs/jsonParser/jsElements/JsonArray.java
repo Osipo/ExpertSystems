@@ -1,7 +1,6 @@
 package ru.osipov.expertSysLabs.jsonParser.jsElements;
 
 import java.util.ArrayList;
-
 public class JsonArray extends JsonElement<ArrayList<JsonElement>> {
     private ArrayList<JsonElement> elements;
     private int c;

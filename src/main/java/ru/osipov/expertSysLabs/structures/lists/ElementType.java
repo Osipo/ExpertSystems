@@ -1,5 +1,6 @@
 package ru.osipov.expertSysLabs.structures.lists;
 
+//Entry of the LinkedList and LinkedStack
 public class ElementType<T> {
     private T element;
     private ElementType<T> next;

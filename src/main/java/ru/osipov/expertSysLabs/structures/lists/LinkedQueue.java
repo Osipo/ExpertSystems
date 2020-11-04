@@ -3,10 +3,11 @@ package ru.osipov.expertSysLabs.structures.lists;
 import java.util.Collection;
 import java.util.Iterator;
 
+//LIST
 //FIFO
 public class LinkedQueue<T> implements Collection<T>, Iterable<T> {
 
-    protected ElementType<T> _front;//pointer to the first element. (->) Ignored:: Element field.
+    protected ElementType<T> _front;//pointer to the first entry. (->) (to get first inserted element use _front.getNext().getElement())
     protected ElementType<T> _rear;//pointer to the last element. (->)
     protected int _count;
 
@@ -28,6 +29,7 @@ public class LinkedQueue<T> implements Collection<T>, Iterable<T> {
     }
 
     //FRONT(Q)
+    //Get first inserted element of queue.
     public T front(){
         if(isEmpty()){
             System.out.println("Error. Queue is empty");
@@ -38,6 +40,8 @@ public class LinkedQueue<T> implements Collection<T>, Iterable<T> {
     }
 
     //ENQUEUE(Q)
+    //move rear pointer (++ptr_rear)
+    //and add element to the new location (*(++ptr_rear) = item)
     public void enqueue(T item){
         this._rear.setNext(new ElementType<T>());//new(rear.next)
         this._rear = this._rear.getNext();//rear = rear.next

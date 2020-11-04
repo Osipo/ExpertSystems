@@ -1,8 +1,8 @@
 package ru.osipov.expertSysLabs.jsonParser.jsElements;
 
-import ru.osipov.labs.lab1.structures.lists.KeyValuePair;
-import ru.osipov.labs.lab1.structures.lists.LinkedStack;
-import ru.osipov.labs.lab2.jsonParser.JsParserState;
+import ru.osipov.expertSysLabs.structures.lists.KeyValuePair;
+import ru.osipov.expertSysLabs.structures.lists.LinkedStack;
+import ru.osipov.expertSysLabs.jsonParser.JsParserState;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,7 +40,7 @@ public class JsonObject extends JsonElement<StrLinkedHashMap<JsonElement>> {
             p.add(m.group());
         StrLinkedHashMap<JsonElement> cnode = table;//ROOT.
         JsonElement n  = null;
-        System.out.println(p);
+        //System.out.println(p);
         if(p.size() == 0)
             return getProperty(path);
         for(String c : p){
