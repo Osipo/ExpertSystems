@@ -5,6 +5,8 @@ import ru.osipov.expertSysLabs.jsonParser.jsElements.JsonObject;
 import ru.osipov.expertSysLabs.kernel.Base;
 import ru.osipov.expertSysLabs.kernel.InvalidBaseFormatException;
 
+import java.io.IOException;
+
 public class App {
     public static void main(String[] args) {
         String e_dir = System.getProperty("user.dir");
@@ -21,6 +23,9 @@ public class App {
                 dataBase.makePngFile(e_dir+"example1_data");
             } catch (InvalidBaseFormatException ex){
                 System.out.println("Invalid json data!");
+            }
+            catch (IOException ex){
+                System.out.println("Cannot find dot file of graph");
             }
 
         }

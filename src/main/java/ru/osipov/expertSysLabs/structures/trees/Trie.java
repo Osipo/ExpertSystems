@@ -1,23 +1,27 @@
 package ru.osipov.expertSysLabs.structures.trees;
 
+import ru.osipov.expertSysLabs.structures.SingleGenClass;
 import ru.osipov.expertSysLabs.structures.lists.LinkedList;
 import ru.osipov.expertSysLabs.structures.lists.LinkedStack;
 
 import javax.annotation.Nonnull;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.*;
 
 /**
  * @author Osipov O.K.
  * @param <Leaf> - the type of the data being stored
  */
-public class Trie<Leaf> implements Iterable<Leaf> {
+public class Trie<Leaf> extends SingleGenClass<Leaf> implements Iterable<Leaf> {
 
     //Node contains edges to the others which are labeled with character.
     //NEXT node may be either the same (be a map) or be a leaf node which contains the data.
     //Leaf node has type LEAF and it can be gained from its parent by edge with label = '$'
     private final Map<Character,Object> _tree;
 
-    public Trie(){
+    public Trie(Class<Leaf> clazz){
+        super(clazz);
         this._tree = new TreeMap<>();
     }
 
@@ -127,16 +131,21 @@ public class Trie<Leaf> implements Iterable<Leaf> {
                 S.pop();
             }
             else{
-                try{
-                    Leaf e = (Leaf)b;
+                String type = getGenType().getName();
+                String actual = b.getClass().getName();
+//                System.out.println("Type param: "+type);
+//                System.out.println("Actual: "+actual);
+                if(type.equals(actual)){
                     S.pop();
-                    E.add(e);
+                    E.add((Leaf)b);
                 }
-                catch (ClassCastException ex){
+                else {
                     hs.add(b);
-                    Collection<Object> children = Collections.singleton(((Map<Character, Object>) b).values());
-                    for(Object it  : children){
-                        S.push(it);
+                    //System.out.println(b.getClass().getName());
+                    Map<Character, Object> children = (Map<Character, Object>) b;
+                    //Collection<Object> children = Collections.singleton(((Map<Character, Object>) b).values());
+                    for(Character k  : children.keySet()){
+                        S.push(children.get(k));
                     }
                 }
             }

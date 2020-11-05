@@ -15,22 +15,16 @@ public class Vertex implements Node {
 
     private NavigableSet<Rule> rules;//Rules for which this node is premise.
 
-    private int compareRules(Rule r1, Rule r2){
-        long c1 = Long.parseLong(r1.getName().substring(2));
-        long c2 = Long.parseLong(r2.getName().substring(2));
-        return Long.compare(c1,c2);
-    }
-
     public Vertex(){
         this.name = "V_" + (++id);
         this.val = null;
-        this.rules = new TreeSet<>(this::compareRules);
+        this.rules = new TreeSet<>(Comparators::compareRules);
     }
 
     public Vertex(String val){
         this.name = "V_" + (++id);
         this.val = val;
-        this.rules = new TreeSet<>(this::compareRules);
+        this.rules = new TreeSet<>(Comparators::compareRules);
     }
 
     public String getName(){

@@ -17,15 +17,9 @@ public class Rule implements Node{
     private String name;
     private static long id = -1L;
 
-    private int compareVertices(Vertex v1, Vertex v2){
-        long c1 = Long.parseLong(v1.getName().substring(2));
-        long c2 = Long.parseLong(v2.getName().substring(2));
-        return Long.compare(c1,c2);
-    }
-
     public Rule(){
         this.name = "R_" + (++id);
-        this.premises = new TreeSet<>(this::compareVertices);
+        this.premises = new TreeSet<>(Comparators::compareVertices);
         this.conclusion = null;
         this.type = RuleType.AND;
     }

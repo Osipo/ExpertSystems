@@ -1,0 +1,26 @@
+digraph g1  {
+V_0[ label="V_0\none",color="blue", shape="circle"];
+V_1[ label="V_1\ntwo",color="blue", shape="circle"];
+V_2[ label="V_2\nthree",color="blue", shape="circle"];
+R_0[ label="R_0\nAND",color="black", shape="square"];
+V_0 -> R_0;
+V_1 -> R_0;
+R_0 -> V_2;
+V_0[ label="V_0\none",color="blue", shape="circle"];
+V_3[ label="V_3\none",color="blue", shape="circle"];
+R_1[ label="R_1\nAND",color="black", shape="square"];
+V_0 -> R_1;
+R_1 -> V_3;
+V_4[ label="V_4\ndev",color="blue", shape="circle"];
+V_5[ label="V_5\nnull",color="blue", shape="circle"];
+V_6[ label="V_6\neverything",color="blue", shape="circle"];
+R_2[ label="R_2\nNOT",color="black", shape="square"];
+V_4 -> R_2;
+V_5 -> R_2;
+R_2 -> V_6;
+V_4[ label="V_4\ndev",color="blue", shape="circle"];
+V_5[ label="V_5\nnull",color="blue", shape="circle"];
+R_3[ label="R_3\nAND",color="black", shape="square"];
+V_4 -> R_3;
+V_5 -> R_3;
+}
