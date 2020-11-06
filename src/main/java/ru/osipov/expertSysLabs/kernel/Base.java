@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * База знаний. Содержит информацию о всех продукциях и условиях.
+ * Knowledge base.
  */
 public class Base {
 
@@ -149,6 +149,8 @@ public class Base {
         return facts;
     }
 
+    public NavigableSet<Rule> getRules(){return rules;}
+
     /**
      * Creates a png image of content of the Base (digraph image)
      * @param fname the name of the new file.
@@ -200,19 +202,6 @@ public class Base {
                     fw.write(";\n");
                 }
             }
-//            Iterator<FactEntry> it = this.facts.iterator();
-//            HashSet<Rule> visited = new HashSet<>();
-//            while(it.hasNext()) {
-//                FactEntry e = it.next();
-//                if (e.getPremise() != null && e.getConclusion() != null) {
-//                    addDotInfo(fw,visited, e.getPremise());
-//                    addDotInfo(fw,visited, e.getConclusion());
-//                } else if (e.getPremise() != null) {
-//                    addDotInfo(fw,visited, e.getPremise());
-//                } else if (e.getConclusion() != null) {
-//                    addDotInfo(fw,visited, e.getConclusion());
-//                }
-//            }
             fw.write("}");
         }
         catch (FileNotFoundException e){
@@ -222,51 +211,5 @@ public class Base {
         }
         //render dot file to png (image)
         Graphviz.fromFile(f).render(Format.PNG).toFile(new File(fname+"_img.png"));
-    }
-
-    private void addDotInfo(FileWriter fw, HashSet<Rule> visited, Vertex v) throws IOException {
-        for(Rule r : v.getRules()){
-            if(visited.contains(r))
-                continue;
-            //write premises nodes
-            for(Vertex p : r.getPremises()){
-                fw.write(p.getName());
-                fw.write("[ label=\"");
-                fw.write(p.getName()+"\\n"+p.getValue()+"\"");
-                fw.write(",color=\"blue\", shape=\"circle\"];\n");
-            }
-            if(r.getConclusion() != null){
-                //write conclusion node
-                fw.write(r.getConclusion().getName());
-                fw.write("[ label=\"");
-                fw.write(r.getConclusion().getName()+"\\n"+r.getConclusion().getValue()+"\"");
-                fw.write(",color=\"blue\", shape=\"circle\"];\n");
-            }
-
-            //write rule node
-            fw.write(r.getName());
-            fw.write("[ label=\"");
-            fw.write(r.getName()+"\\n"+r.getType()+"\"");
-            fw.write(",color=\"black\", shape=\"square\"");
-            fw.write("];\n");
-
-            //write connections of premises
-            for(Vertex p : r.getPremises()){
-                fw.write(p.getName());
-                fw.write(" -> ");
-                fw.write(r.getName());
-                fw.write(";\n");
-            }
-
-            //write conclusion connection.
-            if(r.getConclusion() != null) {
-                fw.write(r.getName());
-                fw.write(" -> ");
-                fw.write(r.getConclusion().getName());
-                fw.write(";\n");
-            }
-
-            visited.add(r);
-        }
     }
 }

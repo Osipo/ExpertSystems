@@ -24,6 +24,11 @@ public class Rule implements Node{
         this.type = RuleType.AND;
     }
 
+    @Override
+    public String toString(){
+        return this.name;
+    }
+
     public String getName(){
         return name;
     }
@@ -65,5 +70,32 @@ public class Rule implements Node{
     @Override
     public NodeType getNodeType() {
         return NodeType.RULE;
+    }
+
+    public boolean isApplicable(){
+        switch (type){
+            case AND:{
+                for(Vertex v : premises){
+                    if(!v.isActive())
+                        return false;
+                }
+                return true;
+            }
+            case OR:{
+                for(Vertex v : premises){
+                    if(v.isActive())
+                        return true;
+                }
+                return false;
+            }
+            case NOT:{
+                for(Vertex v : premises){
+                    if(v.isActive())
+                        return false;
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }

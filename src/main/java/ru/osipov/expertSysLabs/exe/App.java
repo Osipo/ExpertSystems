@@ -4,8 +4,11 @@ import ru.osipov.expertSysLabs.jsonParser.SimpleJsonParser;
 import ru.osipov.expertSysLabs.jsonParser.jsElements.JsonObject;
 import ru.osipov.expertSysLabs.kernel.Base;
 import ru.osipov.expertSysLabs.kernel.InvalidBaseFormatException;
+import ru.osipov.expertSysLabs.kernel.Resolver;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) {
@@ -20,14 +23,24 @@ public class App {
             try {
                 Base dataBase = new Base(data);
                 System.out.println("Data was read.");
-                dataBase.makePngFile(e_dir+"example1_data");
+
+                //Make png of built graph.
+                //dataBase.makePngFile(e_dir+"example1_data");
+
+                //Resolves the set of applicable rules
+                Resolver resolver = new Resolver();
+
+                List<String> WM1 = Arrays.asList("one","two");
+
+                System.out.println("Real mem: "+WM1.toString());
+                System.out.println("Applicable rules: "+resolver.getApplicableRules(WM1.iterator(),dataBase));
+
             } catch (InvalidBaseFormatException ex){
                 System.out.println("Invalid json data!");
             }
-            catch (IOException ex){
-                System.out.println("Cannot find dot file of graph");
-            }
-
+//            catch (IOException ex){
+//                System.out.println("Cannot find dot file of graph");
+//            }
         }
     }
 }

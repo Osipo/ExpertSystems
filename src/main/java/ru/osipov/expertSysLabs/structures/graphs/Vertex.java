@@ -11,6 +11,7 @@ import java.util.*;
 public class Vertex implements Node {
     private static long id = -1L;
     private String name;
+    private boolean isActive;
     private String val;//Content of node.
 
     private NavigableSet<Rule> rules;//Rules for which this node is premise.
@@ -77,5 +78,13 @@ public class Vertex implements Node {
     @Override
     public NodeType getNodeType() {
         return NodeType.FACT;
+    }
+
+    public void setActive(boolean f) {
+        this.isActive = f;
+    }
+
+    public boolean isActive() {
+        return this.isActive;
     }
 }

@@ -112,7 +112,6 @@ public class Trie<Leaf> extends SingleGenClass<Leaf> implements Iterable<Leaf> {
         return true;
     }
 
-
     @Override
     @Nonnull
     /**
@@ -120,36 +119,74 @@ public class Trie<Leaf> extends SingleGenClass<Leaf> implements Iterable<Leaf> {
      * Collect only leaf nodes and return iterator of LinkedList
      */
     public Iterator<Leaf> iterator() {
-        HashSet<Object> hs = new HashSet<>();//VISITED nodes.
 
         LinkedList<Leaf> E = new LinkedList<>();//Leaf nodes with data.
-        LinkedStack<Object> S = new LinkedStack<>();//
+        LinkedStack<Object> S = new LinkedStack<>();//STACK of nodes.
         S.push(_tree);
-        while(!S.isEmpty()){
-            Object b = S.top();
-            if(hs.contains(b)){
-                S.pop();
+        while(!S.isEmpty()) {
+            Object b = S.top();//extract inter-node.
+            S.pop();
+            Map<Character, Object> children = (Map<Character, Object>) b;
+            //add its children to the STACK.
+            for (Character k : children.keySet()) {
+                if (k == '$')
+                    continue;
+                S.push(children.get(k));
             }
-            else{
-                String type = getGenType().getName();
-                String actual = b.getClass().getName();
-//                System.out.println("Type param: "+type);
-//                System.out.println("Actual: "+actual);
-                if(type.equals(actual)){
-                    S.pop();
-                    E.add((Leaf)b);
-                }
-                else {
-                    hs.add(b);
-                    //System.out.println(b.getClass().getName());
-                    Map<Character, Object> children = (Map<Character, Object>) b;
-                    //Collection<Object> children = Collections.singleton(((Map<Character, Object>) b).values());
-                    for(Character k  : children.keySet()){
-                        S.push(children.get(k));
-                    }
-                }
+
+            //if it has edge with '$' and its value IS NOT NULL.
+            if (children.containsKey('$') && children.getOrDefault('$', null) != null){
+                E.add((Leaf) children.get('$'));
             }
         }
         return E.iterator();
+    }
+//
+//    @Override
+//    @Nonnull
+//    public Iterator<Leaf> iterator(){
+//        return new TrieIterator();
+//    }
+
+    private class TrieIterator implements Iterator<Leaf> {
+
+        private LinkedStack<Object> S;
+        TrieIterator(){
+            S = new LinkedStack<>();
+            S.push(_tree);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return !S.isEmpty();
+        }
+
+        //Flush the sequence to the beginning.
+        public void flush(){
+            this.S = null;
+            this.S = new LinkedStack<>();
+            S.push(_tree);
+        }
+
+        @Override
+        public Leaf next() {
+            while(!S.isEmpty()) {
+                Object b = S.top();//extract inter-node.
+                S.pop();
+                Map<Character, Object> children = (Map<Character, Object>) b;
+                //add its children to the STACK.
+                for (Character k : children.keySet()) {
+                    if (k == '$')
+                        continue;
+                    S.push(children.get(k));
+                }
+
+                //if it has edge with '$' and its value IS NOT NULL.
+                if (children.containsKey('$') && children.getOrDefault('$', null) != null){
+                    return (Leaf) children.get('$');
+                }
+            }
+            return null;
+        }
     }
 }
