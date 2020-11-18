@@ -8,7 +8,7 @@ import java.util.*;
  * The type for this node is fact.
  * @author Osipov O.K.
  */
-public class Vertex implements Node {
+public class Vertex {
     private static long id = -1L;
     private String name;
     private boolean isActive;
@@ -73,11 +73,6 @@ public class Vertex implements Node {
             return false;
         this.rules.remove(r);
         return true;
-    }
-
-    @Override
-    public NodeType getNodeType() {
-        return NodeType.FACT;
     }
 
     public void setActive(boolean f) {

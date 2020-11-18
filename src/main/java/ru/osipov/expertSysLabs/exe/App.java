@@ -5,8 +5,8 @@ import ru.osipov.expertSysLabs.jsonParser.jsElements.JsonObject;
 import ru.osipov.expertSysLabs.kernel.Base;
 import ru.osipov.expertSysLabs.kernel.InvalidBaseFormatException;
 import ru.osipov.expertSysLabs.kernel.Resolver;
+import ru.osipov.expertSysLabs.kernel.WorkingMemory;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,11 +29,12 @@ public class App {
 
                 //Resolves the set of applicable rules
                 Resolver resolver = new Resolver();
+                WorkingMemory wm = new WorkingMemory();
 
                 List<String> WM1 = Arrays.asList("one","two");
 
                 System.out.println("Real mem: "+WM1.toString());
-                System.out.println("Applicable rules: "+resolver.getApplicableRules(WM1.iterator(),dataBase));
+                System.out.println("Applicable rules: "+resolver.getApplicableRules(WM1.iterator(),dataBase,wm));
 
             } catch (InvalidBaseFormatException ex){
                 System.out.println("Invalid json data!");

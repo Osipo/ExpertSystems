@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be0dbc35-b146-4552-95fe-9c29772fc89b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/Resolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/SearchMode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/SearchResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/Searcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/WorkingMemory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -12,14 +16,36 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/exe/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/exe/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/kernel/Base.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/kernel/Base.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/kernel/FactEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/kernel/FactEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/kernel/Resolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/kernel/Resolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/GraphVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Rule$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Rule$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Rule.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Rule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/RuleType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/RuleType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Vertex.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Vertex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/ArrStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/ArrStack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedList$Iter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedList$Iter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedQueue$QueueIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedQueue$QueueIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedStack$IterS.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedStack$IterS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/lists/LinkedStack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Trie$TrieIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Trie$TrieIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Trie.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/trees/Trie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/exe/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/exe/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/Base.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/FactEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/FactEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/Resolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/kernel/Resolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/GraphVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Node.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/RuleType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/RuleType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/ArrStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/ArrStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/ElementType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/ElementType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/lists/LinkedStack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/trees/Trie.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,9 +74,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>

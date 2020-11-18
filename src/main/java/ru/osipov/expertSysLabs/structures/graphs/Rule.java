@@ -9,7 +9,7 @@ import java.util.TreeSet;
  * Contains premises conclusion and the type of connection of premises (AND,OR,NOT)
  * @author Osipov O.K.
  */
-public class Rule implements Node{
+public class Rule {
 
     private Vertex conclusion;//result of rule.
     private NavigableSet<Vertex> premises;//conditions.
@@ -67,11 +67,10 @@ public class Rule implements Node{
         return false;
     }
 
-    @Override
-    public NodeType getNodeType() {
-        return NodeType.RULE;
-    }
-
+    /**
+     * @author Osipov O.K.
+     * @return boolean value which specifies is this rule can be applied.
+     */
     public boolean isApplicable(){
         switch (type){
             case AND:{
@@ -97,5 +96,10 @@ public class Rule implements Node{
             }
         }
         return false;
+    }
+
+
+    public void apply(){
+        this.conclusion.setActive(true);
     }
 }

@@ -1,6 +1,5 @@
 package ru.osipov.expertSysLabs.kernel;
 
-import ru.osipov.expertSysLabs.structures.graphs.Node;
 import ru.osipov.expertSysLabs.structures.graphs.Vertex;
 
 /**

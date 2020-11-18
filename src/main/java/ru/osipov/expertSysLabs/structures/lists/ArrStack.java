@@ -1,5 +1,10 @@
 package ru.osipov.expertSysLabs.structures.lists;
 
+/**
+ * @author Osipov O.K.
+ * The STACK (LIFO) Structure based on array.
+ * @param <T> the type of data being contained.
+ */
 public class ArrStack<T> {
     private int _top;//pointer to the top of the stack.
     private int _count;//count

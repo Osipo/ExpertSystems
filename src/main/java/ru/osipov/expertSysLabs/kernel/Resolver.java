@@ -21,29 +21,35 @@ public class Resolver {
      * @param realFacts The current state => content of the working memory.
      * @param data The knowledge base with facts and rules.
     */
-    public NavigableSet<Rule> getApplicableRules(Iterator<String> realFacts, Base data){
+    public NavigableSet<Rule> getApplicableRules(Iterator<String> realFacts, Base data, WorkingMemory mem){
         NavigableSet<Rule> result = new TreeSet<>(Comparators::compareRules);
         while(realFacts.hasNext()){
             String val_i = realFacts.next();
             FactEntry f = data.getFacts().getValue(val_i);
             if(f != null){
                 if(f.getPremise() != null){
-                    checkVertex(f.getPremise(),val_i);
+                    checkVertex(f.getPremise(),val_i,mem);
                 }
                 if(f.getConclusion() != null){
-                    checkVertex(f.getConclusion(),val_i);
+                    checkVertex(f.getConclusion(),val_i,mem);
                 }
             }
         }
         for(Rule r : data.getRules()){
-            if(r.isApplicable())
+            if(r.isApplicable()) {
                 result.add(r);
+                mem.getCRules().add(r);
+            }
         }
         return result;
     }
 
     //set active on vertices with content = val.
-    private void checkVertex(Vertex v, String val){
-        v.setActive(v.getValue().equals(val));
+    private void checkVertex(Vertex v, String val, WorkingMemory mem){
+        boolean f = v.getValue().equals(val);
+        if(f) {
+            v.setActive(v.getValue().equals(val));
+            mem.getVertices().add(v);
+        }
     }
 }

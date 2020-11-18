@@ -3,6 +3,11 @@ package ru.osipov.expertSysLabs.structures.lists;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * LIST structure.
+ * @author Osipov O.K.
+ * @param <T> the type of data being contained.
+ */
 public class LinkedList<T> implements Iterable<T>, Collection<T> {
     private ElementType<T> _head;//pointer to the first element. (->) Ignored:: Element field.
     private ElementType<T> _tail;//last element of the list.

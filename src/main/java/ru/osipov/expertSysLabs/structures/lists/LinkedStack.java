@@ -4,12 +4,11 @@ import java.util.Collection;
 import java.util.Iterator;
 
 /**
- * Dynamic Stack based on linked list.
- * Implements LIFO insertion model of the list.
+ * Dynamic STACK (LIFO) structure based on linked list.
  * @author Osipov O.K.
  * @param <T> type of elements
  */
-public class LinkedStack<T> implements Iterable<T> {
+public class LinkedStack<T> implements Iterable<T>, Store<T> {
     private ElementType<T> _head;//the top of the stack.
     private int _count;//count
 
@@ -138,6 +137,21 @@ public class LinkedStack<T> implements Iterable<T> {
     @Nonnull
     public Iterator<T> iterator() {
         return new IterS();
+    }
+
+    @Override
+    public void insert(T item) {
+        push(item);
+    }
+
+    @Override
+    public void delete() {
+        pop();
+    }
+
+    @Override
+    public T get() {
+        return top();
     }
 
 

@@ -3,9 +3,12 @@ package ru.osipov.expertSysLabs.structures.lists;
 import java.util.Collection;
 import java.util.Iterator;
 
-//LIST
-//FIFO
-public class LinkedQueue<T> implements Collection<T>, Iterable<T> {
+/**
+ * The QUEUE (FIFO) structure based on LinkedList.
+ * @author Osipov O.K.
+ * @param <T> the type of data being contained.
+ */
+public class LinkedQueue<T> implements Collection<T>, Iterable<T>, Store<T> {
 
     protected ElementType<T> _front;//pointer to the first entry. (->) (to get first inserted element use _front.getNext().getElement())
     protected ElementType<T> _rear;//pointer to the last element. (->)
@@ -113,6 +116,21 @@ public class LinkedQueue<T> implements Collection<T>, Iterable<T> {
         int c = _count;
         enqueue(t);
         return _count != c;
+    }
+
+    @Override
+    public T get() {
+        return front();
+    }
+
+    @Override
+    public void delete(){
+        dequeue();
+    }
+
+    @Override
+    public void insert(T item){
+        enqueue(item);
     }
 
     @Override

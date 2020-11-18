@@ -17,7 +17,8 @@ public class Trie<Leaf> extends SingleGenClass<Leaf> implements Iterable<Leaf> {
 
     //Node contains edges to the others which are labeled with character.
     //NEXT node may be either the same (be a map) or be a leaf node which contains the data.
-    //Leaf node has type LEAF and it can be gained from its parent by edge with label = '$'
+    //Leaf node has type <Leaf> and it can be gained from its parent by edge with label = '$'
+    //So '$' symbol is reserved.
     private final Map<Character,Object> _tree;
 
     public Trie(Class<Leaf> clazz){
