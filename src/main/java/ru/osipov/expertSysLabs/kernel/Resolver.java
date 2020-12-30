@@ -17,13 +17,16 @@ import java.util.TreeSet;
  */
 public class Resolver {
 
-    /**Get set of rules which can be applied from current state.
-     * @param realFacts The current state => content of the working memory.
-     * @param data The knowledge base with facts and rules.
-    */
-    public NavigableSet<Rule> getApplicableRules(Iterator<String> realFacts, Base data, WorkingMemory mem){
-        NavigableSet<Rule> result = new TreeSet<>(Comparators::compareRules);
-        while(realFacts.hasNext()){
+    /**
+     * Check that nodes with values from realFacts are exists in knowledge base.
+     * And add these found nodes to memory.
+     * Also compute all applicable rules from these
+     * @param realFacts initial source data
+     * @param data The knowledge base.
+     * @param mem The working memory
+     */
+    public void initMem(Iterator<String> realFacts, Base data, WorkingMemory mem){
+        while(realFacts.hasNext()){//Search these facts at Base and set nodes active (n.active => true)
             String val_i = realFacts.next();
             FactEntry f = data.getFacts().getValue(val_i);
             if(f != null){
@@ -35,21 +38,54 @@ public class Resolver {
                 }
             }
         }
+        getApplicableRules(data, mem);
+    }
+    /**Get set of rules which can be applied from current state.
+     * @param mem The working memory.
+     * @param data The knowledge base with facts and rules.
+    */
+    public void getApplicableRules(Base data, WorkingMemory mem){
+        //NavigableSet<Rule> result = new TreeSet<>(Comparators::compareRules);
+
+        //check all rules. And save all applicable rules to working memory.
         for(Rule r : data.getRules()){
             if(r.isApplicable()) {
-                result.add(r);
+                //result.add(r);
                 mem.getCRules().add(r);
             }
         }
-        return result;
+        //return result; //return a list of current applicable rules.
     }
 
     //set active on vertices with content = val.
     private void checkVertex(Vertex v, String val, WorkingMemory mem){
         boolean f = v.getValue().equals(val);
         if(f) {
-            v.setActive(v.getValue().equals(val));
+            v.setActive(true);
             mem.getVertices().add(v);
+        }
+    }
+
+    private void checkTarget(Vertex v, String val, WorkingMemory mem){
+        boolean f = v.getValue().equals(val);
+        if(f) {
+            v.setActive(true);
+            mem.getTargets().add(v);
+        }
+    }
+
+    public void setTargets(Iterator<String> targets, Base db, WorkingMemory mem){
+        while(targets.hasNext()) {
+            String val_i = targets.next();
+            FactEntry f = db.getFacts().getValue(val_i);
+            if (f != null) {
+                if (f.getPremise() != null) {//check if premise_node contains value
+                    checkTarget(f.getPremise(), val_i, mem);
+                }
+                if (f.getConclusion() != null) {//check if conclusion_node contains value
+                    checkTarget(f.getConclusion(), val_i, mem);
+                }
+            }
         }
     }
 }

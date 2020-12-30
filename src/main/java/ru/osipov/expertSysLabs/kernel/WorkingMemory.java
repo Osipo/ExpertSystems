@@ -14,26 +14,52 @@ import java.util.TreeSet;
  * @author Osipov O.K.
  */
 public class WorkingMemory {
-    private NavigableSet<Rule> dRules;
-    private NavigableSet<Vertex> dVertices;
-    private NavigableSet<Vertex> source_data;
+    private NavigableSet<Rule> Rules;
+    private NavigableSet<Vertex> Vertices;
+    private NavigableSet<Vertex> target_Data;
 
     public WorkingMemory(){
-        this.dRules = new TreeSet<>(Comparators::compareRules);
-        this.dVertices = new TreeSet<>(Comparators::compareVertices);
-        this.source_data = new TreeSet<>(Comparators::compareVertices);
+        this.Rules = new TreeSet<>(Comparators::compareRules);
+        this.Vertices = new TreeSet<>(Comparators::compareVertices);
+        this.target_Data = new TreeSet<>(Comparators::compareVertices);
     }
 
     public NavigableSet<Rule> getCRules() {
-        return dRules;
+        return Rules;
     }
 
     public NavigableSet<Vertex> getVertices() {
-        return dVertices;
+        return Vertices;
     }
 
 
-    public NavigableSet<Vertex> getData() {
-        return source_data;
+    public NavigableSet<Vertex> getTargets() {
+        return target_Data;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\n");
+        sb.append("\tSource: [ ");
+        Iterator<Vertex> i = Vertices.iterator();
+        while(i.hasNext()){
+            sb.append(i.next().getName()).append(' ');
+        }
+        sb.append("]\n\t");
+        sb.append("Targets: [ ");
+        i = target_Data.iterator();
+        while(i.hasNext()){
+            sb.append(i.next().getName()).append(' ');
+        }
+        sb.append("]\n\t");
+        Iterator<Rule> r = Rules.iterator();
+        sb.append("Applicable Rules: [");
+        while(r.hasNext()){
+            sb.append(r.next().getName()).append(' ');
+        }
+        sb.append("]\n");
+        sb.append("}");
+        return sb.toString();
     }
 }

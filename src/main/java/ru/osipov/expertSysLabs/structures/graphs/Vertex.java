@@ -22,6 +22,12 @@ public class Vertex {
         this.rules = new TreeSet<>(Comparators::compareRules);
     }
 
+    public Vertex(Vertex v){
+        this.name = v.getName();
+        this.isActive = v.isActive();
+        this.val = v.getValue();
+    }
+
     public Vertex(String val){
         this.name = "V_" + (++id);
         this.val = val;
