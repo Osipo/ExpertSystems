@@ -25,6 +25,7 @@ public class DataParser implements IDataParser{
         return parser.isUnaryOperator(c);
     }
 
+    @Override
     public void parseFact(String line, LogicSystemWM wm){
         String[] ps = line.split("[|]");//All facts are in form: P1(C1, C2) | P2(C1, C2 ... CN) | ... PN(C1)
         Predicate pr = null;
@@ -40,7 +41,64 @@ public class DataParser implements IDataParser{
     }
 
     @Override
-    public void parseRule(String line, LogicSystemWM wm){
+    public boolean isFormula(String line){
+        int sep = line.indexOf('>');
+        if(sep == -1)
+            return true;
+        else return line.substring(sep + 1).length() > 0;
+    }
+
+    @Override
+    public PRule parseFormula(String line, LogicSystemWM wm, HashMap<String, String> replacements){
+        //Find predicates at formula.
+        Pattern p = Pattern.compile("([^()&|~, ]+\\([^()&|~]+\\))+");
+        Matcher m = p.matcher(line);
+
+        //Replace predicates with names (for RPN computation)
+        HashMap<String,String> vars = new HashMap<>();//Predicate names in boolean formula.
+        int i = 0;
+        String k = null;
+        while(m.find()){
+            k = "P_" + i;
+            vars.put(k, m.group());
+            //System.out.println(k+" : "+m.group());
+            line = line.replace(m.group(), k);
+            i++;
+        }
+
+        //System.out.println(premises);
+
+        //Compute Reverse Polish Notation of formula which represents a premises of the rule.
+        ArrayList<String> terms = new ArrayList<>();//formula terms
+        p = Pattern.compile("(P_[0-9]+)|([()|&])");//split on boolean terms (pseudo_names, and operators)
+        m = p.matcher(line);
+        while(m.find())
+            terms.add(m.group());
+        String f_rpn = this.parser.GetInput(terms.iterator()).toString();
+
+        String[] f_comps = f_rpn.split("\\s+");
+        String[] formula = new String[f_comps.length - 2];
+
+        //Return original predicates and truncate [ and ] symbols from f_comps
+        for(int fi = 1; fi < f_comps.length - 1; fi++){
+            formula[fi - 1] = vars.getOrDefault(f_comps[fi],f_comps[fi]);
+
+            //REPLACE VARIABLES WITH ITS REPLACEMENTS
+            if(replacements != null) {
+                for (String var : replacements.keySet()) {
+                    formula[fi - 1] = formula[fi - 1].replace(var, replacements.getOrDefault(var, var));
+                }
+            }
+        }
+        f_comps = null;
+
+        //Now we have well-formed formula
+        PRule rule = new PRule(formula, "");
+        wm.addPRule(rule);//save new rule into Working memory
+        return rule;
+    }
+    @Override
+    public PRule parseRule(String line, LogicSystemWM wm, HashMap<String, String> replacements){
 
         //separate conclusion and premises
         int sep = line.indexOf('>');
@@ -80,17 +138,26 @@ public class DataParser implements IDataParser{
         //Return original predicates and truncate [ and ] symbols from f_comps
         for(int fi = 1; fi < f_comps.length - 1; fi++){
             formula[fi - 1] = vars.getOrDefault(f_comps[fi],f_comps[fi]);
+
+            //REPLACE VARIABLES WITH ITS REPLACEMENTS
+            if(replacements != null) {
+                for (String var : replacements.keySet()) {
+                    formula[fi - 1] = formula[fi - 1].replace(var, replacements.getOrDefault(var, var));
+                }
+            }
         }
         f_comps = null;
 
         //Now we have well-formed formula
         PRule rule = new PRule(formula, conclusion);
         wm.addPRule(rule);//save new rule into Working memory
+        return rule;
     }
 
     @Override
     public Predicate parsePredicate(String p) throws StringParseException{
         StringBuilder sb = new StringBuilder();
+        System.out.println(p);
         Predicate pr = null;
         char c;
         char pt; // param type;

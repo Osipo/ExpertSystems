@@ -19,6 +19,10 @@ public class PRule {
         return conclusion;
     }
 
+    public void setConclusion(String conclusion) {
+        this.conclusion = conclusion;
+    }
+
     @Override
     public int hashCode(){
         StringBuilder sb = new StringBuilder();
@@ -30,6 +34,16 @@ public class PRule {
     }
 
 
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        for(String p : formula){
+            sb.append(p);
+        }
+        sb.append(" > ");
+        sb.append(conclusion);
+        return sb.toString();
+    }
 
     @Override
     public boolean equals(Object o){

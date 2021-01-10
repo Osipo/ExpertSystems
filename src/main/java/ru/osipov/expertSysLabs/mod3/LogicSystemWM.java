@@ -34,9 +34,22 @@ public class LogicSystemWM {
         return rules.iterator();
     }
 
+    public int rulesCount(){
+        return rules.size();
+    }
+
+    public int factsCount(){
+        return facts.size();
+    }
+
     public void printContent(){
+        System.out.println("=== FACTS ===");
         for(Map.Entry<String,Predicate> e : facts.entrySet()){
             System.out.print(e.getValue().toString());
+        }
+        System.out.println("=== RULES ===");
+        for(PRule r : rules){
+            System.out.println(r);
         }
     }
 
