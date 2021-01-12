@@ -2,24 +2,25 @@ package ru.osipov.expertSysLabs.mod3;
 
 import java.io.*;
 
+/* Read data from file and save them to the LogicalSystemStore */
 public class InputReader {
-    private IDataParser parser;
-    private PRule target;
+    private ILogicalDataParser parser;
 
     public InputReader(){
-        this.parser = new DataParser();
-        this.target = null;
+        this.parser = new SimpleLogicalDataParser();
     }
-    public boolean read(String fname, LogicSystemWM wm){
+    
+    public boolean read(String fname, LogicSystemStore store){
         try(BufferedReader fr = new BufferedReader(new FileReader(fname))){
             String line = fr.readLine();
             while(line != null){
+                //System.out.println("line = "+line);
                 if(line.equalsIgnoreCase("facts"))
-                    line = parseFacts(fr, wm);
+                    line = parseFacts(fr, store);
                 else if(line.equalsIgnoreCase("rules"))
-                    line = parseRules(fr, wm);
+                    line = parseRules(fr, store);
                 else if(line.equalsIgnoreCase("target"))
-                    line = parseTarget(fr, wm);
+                    line = parseTarget(fr, store);
                 else
                     line = fr.readLine();
             }
@@ -33,34 +34,26 @@ public class InputReader {
         return true;
     }
 
-    private String parseTarget(BufferedReader fr, LogicSystemWM wm) {
+    private String parseTarget(BufferedReader fr, LogicSystemStore store) {
         String res = null;
         try{
             res = fr.readLine();
-            this.target = parser.parseFormula(res, wm, null);
-        } catch (IOException e) {
+            Predicate p = parser.parsePredicate(res);
+            store.setTarget(p);
+        } catch (IOException | StringParseException e) {
             System.out.println("Cannot process target");
             res = "IOERR";
         }
         return res;
     }
 
-    public PRule getTarget(){
-        return target;
-    }
-
-    public IDataParser getParser(){
-        return parser;
-    }
-
-
-    private String parseFacts(BufferedReader fr, LogicSystemWM wm)  {
+    private String parseFacts(BufferedReader fr, LogicSystemStore store)  {
         String res = null;
         try {
             String line = fr.readLine();
-            res = line;
             while (line != null && line.length() > 0) {
-                parser.parseFact(line, wm);
+                res = line;
+                parser.parseFact(line, store);
                 line = fr.readLine();
             }
         }catch (IOException e){
@@ -70,12 +63,13 @@ public class InputReader {
         return res;
     }
 
-    private String parseRules(BufferedReader fr, LogicSystemWM wm)  {
+    private String parseRules(BufferedReader fr, LogicSystemStore store)  {
         String res = null;
         try {
             String line = fr.readLine();
             while (line != null && line.length() > 0) {
-                parser.parseRule(line, wm, null);
+                res = line;
+                parser.parseRule(line, store);
                 line = fr.readLine();
             }
         }catch (IOException e){

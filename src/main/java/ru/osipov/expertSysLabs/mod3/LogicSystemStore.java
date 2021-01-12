@@ -4,25 +4,38 @@ import ru.osipov.expertSysLabs.structures.graphs.Comparators;
 
 import java.util.*;
 
-public class LogicSystemWM {
+/* Stores Input Data */
+public class LogicSystemStore {
     private Map<String, Predicate> facts;
-    private Set<PRule> rules;
-    public LogicSystemWM(){
+    private Set<Rule> rules;
+    private Predicate target;
+    public LogicSystemStore(){
         this.facts = new TreeMap<>(Comparators::compareStrings);
         this.rules = new HashSet<>();
+        this.target = null;
     }
+
+    public void setTarget(Predicate target) {
+        this.target = target;
+    }
+
+    public Predicate getTarget() {
+        return target;
+    }
+
     public void addPredicate(Predicate p){
-        facts.put(p.getName(), p);
+        facts.put(p.getName() + p.getSize(), p);
     }
     public Predicate getPredicate(String name){
         return facts.getOrDefault(name, null);
     }
 
-    public boolean addPRule(PRule r){
+
+    public boolean addRule(Rule r){
         return this.rules.add(r);
     }
 
-    public boolean removePRule(PRule r){
+    public boolean removeRule(Rule r){
         return this.rules.remove(r);
     }
 
@@ -30,7 +43,8 @@ public class LogicSystemWM {
         return new PredicateIterator(this.facts.entrySet().iterator());
     }
 
-    public Iterator<PRule> getRules(){
+
+    public Iterator<Rule> getRules(){
         return rules.iterator();
     }
 
@@ -48,12 +62,13 @@ public class LogicSystemWM {
             System.out.print(e.getValue().toString());
         }
         System.out.println("=== RULES ===");
-        for(PRule r : rules){
+        for(Rule r : rules){
             System.out.println(r);
         }
+        System.out.println("TARGET: "+target);
     }
 
-    private class PredicateIterator implements Iterator<Predicate> {
+    private static class PredicateIterator implements Iterator<Predicate> {
 
         private Iterator<Map.Entry<String, Predicate>> current;
 

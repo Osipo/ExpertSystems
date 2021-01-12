@@ -1,7 +1,5 @@
 package ru.osipov.expertSysLabs.structures.graphs;
 
-import ru.osipov.expertSysLabs.mod3.PRule;
-
 public class Comparators {
     public static int compareRules(Rule r1, Rule r2){
         long c1 = Long.parseLong(r1.getName().substring(2));

@@ -1,11 +1,6 @@
 package ru.osipov.expertSysLabs.exe;
 
 import ru.osipov.expertSysLabs.mod3.*;
-import ru.osipov.expertSysLabs.structures.lists.LinkedList;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class Lab_3 {
     public static void main(String[] args){
@@ -15,53 +10,26 @@ public class Lab_3 {
 
         String e1 = e_dir + "example1.txt";
 
-        LogicSystemWM wmem = new LogicSystemWM();
         InputReader reader = new InputReader();
-        LogicalDeducer deducer = new LogicalDeducer();
+        LogicSystemStore store = new LogicSystemStore();
 
-        if(!reader.read(e1, wmem)){
+        if(!reader.read(e1, store)){
             System.out.println("Illegal file format!");
             System.exit(-1);
         }
 
-        wmem.printContent();
-        boolean answer = deducer.deduce(reader.getTarget(), wmem, reader.getParser());
+        store.printContent();
 
-        /*
-        Scanner inp = new Scanner(System.in);
-        LogicSystemWM wm = new LogicSystemWM();
-        DataParser f_reader = new DataParser();
-        String line;
-        System.out.println("Input facts in form: P1(C1, C2 ... CN) | P2(C1) | ...");
-        System.out.println("To finish input type empty string (Just press Enter without typing)");
+        System.out.println("\n=== DEDUCE TARGET ===");
+        System.out.println("Target is " + store.getTarget());
 
-
-
-        //READ FACTS
-        line = inp.nextLine();
-        while(line.length() != 0){
-            f_reader.parseFact(line, wm);
-            line = inp.nextLine();
-        }
-        System.out.println("Facts were read successful");
-        wm.printContent();
-        System.out.println("Input rules in form: P(@x, @y) or P2(D) and P(@x) > S(@x, C2)");
-        System.out.println("To finish input type <Enter>");
-
-        line = inp.nextLine();
-        HashMap<String ,String> replacements = new HashMap<>();
-        while(line.length() != 0){
-            f_reader.parseRule(line, wm, replacements);
-            line = inp.nextLine();
-        }
-
-        System.out.println("Rules were read successful.");
-        wm.printContent();
-
-        LogicalDeducer deducer = new LogicalDeducer();
-        System.out.println("Input formula to proof: ");
-        line = inp.nextLine();
-
-        boolean answer = deducer.deduce(f_reader.parseRule(line, wm, replacements), wm, f_reader);*/
+        DirectDeducer deducer = new DirectDeducer();
+        deducer.canDeduce(store);
+        //S = [t, >, t] R = [{t > t}]
+        //S = [A, W, S, H, >, tv, =, t, >, t] R = [{t > t}, {A W S H > tv}] R_c = [A W S H > tv]
+        //S = [W, S, H, >, tv, =, t, >, t] R = [{t > t}, {A W S H > tv}] R_c = [A W S H > tv]
+        //S = [M, >, w, =, W, S, H, >, tv, =, t, >, t] R = [{t > t}, {A W S H > tv}, {M > w}] R_c = [M > w]
+        //S = [>, w, =, W, S, H, >, tv, =, t, >, t] R = [{t > t}, {A W S H > tv}, {M > w}] R_c = [M > w]
+        //S = [S, H, >, tv, =, t, >, t] R = [{t > t}, {A W S H > tv}] R_c = [A W S H > tv]
     }
 }

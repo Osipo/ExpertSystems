@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be0dbc35-b146-4552-95fe-9c29772fc89b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/InputReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/examples/example1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/DirectDeducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/IEquatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/ILogicalDataParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/Rule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/SimpleLogicalDataParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/examples/algorithm.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,17 +17,28 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/exe/Lab_3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/exe/Lab_3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/DataParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/DataParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/LogicSystemWM.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/LogicSystemWM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/PRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/PRule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/Atom.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/Atom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/DataParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/IDataParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/InputReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/InputReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/LogicSystemWM$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/LogicSystemWM$PredicateIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/LogicSystemWM.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/LogicalDeducer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/PRule.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/Predicate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/mod3/Predicate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Comparators.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ru/osipov/expertSysLabs/structures/graphs/Comparators.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/exe/Lab_3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/exe/Lab_3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/DataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/DataParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/IDataParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/IDataParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/LogicSystemWM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/LogicSystemWM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/LogicalDeducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/LogicalDeducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/PRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/PRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/Atom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/Atom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/DataParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/IDataParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/InputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/InputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/LogicSystemWM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/LogicSystemStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/LogicalDeducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/PRule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/Predicate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/Predicate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/examples/example1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/mod3/examples/example1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Comparators.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/osipov/expertSysLabs/structures/graphs/Comparators.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
