@@ -11,7 +11,13 @@ import java.util.List;
 
 public class Lab1_2 {
     public static void main(String[] args) {
+
+        //Current working directory
         String e_dir = System.getProperty("user.dir");
+
+        System.out.println("Current working directory: "+e_dir);
+        //Path to examples of Labs 1 & 2 from PROJECT DIRECTORY!
+        //Working directory MUST BE THE PROJECT DIR!
         e_dir = e_dir + "\\src\\main\\java\\ru\\osipov\\expertSysLabs\\examples\\";
         System.out.println("Examples directory: "+e_dir);
         String e1 = e_dir + "example2.json";

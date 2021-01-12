@@ -38,7 +38,7 @@ public class InputReader {
         String res = null;
         try{
             res = fr.readLine();
-            Predicate p = parser.parsePredicate(res);
+            Predicate p = parser.parsePredicate(res, false);
             store.setTarget(p);
         } catch (IOException | StringParseException e) {
             System.out.println("Cannot process target");

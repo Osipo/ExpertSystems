@@ -15,7 +15,7 @@ public class SimpleLogicalDataParser implements ILogicalDataParser {
         Predicate pr = null;
         for(String p : ps){
             try {
-                pr = parsePredicate(p);
+                pr = parsePredicate(p, true);
                 store.addPredicate(pr);
             }
             catch (StringParseException e){
@@ -25,7 +25,7 @@ public class SimpleLogicalDataParser implements ILogicalDataParser {
     }
 
     @Override
-    public Predicate parsePredicate(String p) throws StringParseException{
+    public Predicate parsePredicate(String p, boolean isTrue) throws StringParseException{
         StringBuilder sb = new StringBuilder();
         //System.out.println(p);
         Predicate pr = null;
@@ -37,10 +37,12 @@ public class SimpleLogicalDataParser implements ILogicalDataParser {
                 sb.append("P_").append(nameId);
                 nameId++;
                 pr = new Predicate(sb.toString());
+                pr.setVal(isTrue);
                 sb.delete(0,sb.length());//flush sb buffer for new name
             }
             else if(c == '(' && pr == null){
                 pr = new Predicate(sb.toString());
+                pr.setVal(isTrue);
                 sb.delete(0, sb.length());//flush sb buffer for new name
             }
             else if(c == ',' || c == ')'){
@@ -84,7 +86,7 @@ public class SimpleLogicalDataParser implements ILogicalDataParser {
         while(m.find()){
             String m_i = m.group();
             try {
-                rp_i = parsePredicate(m_i);
+                rp_i = parsePredicate(m_i, false);
                 rule.addPredicate(rp_i);
                 //System.out.println(rp_i);
             }
@@ -94,7 +96,7 @@ public class SimpleLogicalDataParser implements ILogicalDataParser {
             }
         }
         try{
-            rule.setConclusion(parsePredicate(conclusion));
+            rule.setConclusion(parsePredicate(conclusion, false));
         } catch (StringParseException e) {
             System.out.println("Illegal string format of predicate: "+conclusion);
             System.out.println("Cannot create predicate for conclusion. Set conclusion to null");

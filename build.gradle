@@ -10,7 +10,7 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'application'
-mainClassName = 'ru.osipov.expertSysLabs.exe.App'
+mainClassName = 'ru.osipov.expertSysLabs.exe.Lab_3'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 

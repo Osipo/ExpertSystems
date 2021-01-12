@@ -1,9 +1,0 @@
-//
-1. Check facts (contains facts target) if where is no target at facts => goto 2.
-2. Find a rule with conclusion where conclusion is target (by name and count of variables)
-3. Prove all predicates (subtargets) at rule.
-4. If predicate (subtarget) in facts => proved subtarget => replace variables.
-    4.1 If it has a variable => replace all occurencies of that variable with constant from db.
-5. else If subtarget in rules conclusion:
-    prove all predicates of that rule:
-

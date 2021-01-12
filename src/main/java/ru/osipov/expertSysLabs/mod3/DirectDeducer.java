@@ -9,7 +9,7 @@ public class DirectDeducer {
     public boolean canDeduce(LogicSystemStore store){
         Predicate t = store.getTarget();
 
-        Set<Predicate> proved = new HashSet<>();
+        Set<Predicate> deduced = new HashSet<>();
 
         boolean result = false;
 
@@ -31,14 +31,14 @@ public class DirectDeducer {
             System.out.println("Current subTarget: "+subT);
             System.out.println("Current STACK: "+S.toString());
             System.out.println("Current rule: "+c_r);
-            System.out.println("Proved: "+ proved);
+            System.out.println("Deduced: "+ deduced);
             S.pop();
-            result = inFact(store, subT, c_r, S, R, proved);
+            result = inFact(store, subT, c_r, S, R, deduced);
             if(!result){
                 c_r = R.top();
-                System.out.println("Sub_target: "+subT+" cannot be proved!");
+                System.out.println("Sub_target: "+subT+" cannot be deduced!");
                 System.out.println("From rule: "+c_r);
-                /*
+
                 System.out.println("Try to find another rule with conclusion.");
                 while(!S.isEmpty() && !S.top().getName().equalsIgnoreCase("=")){
                     S.pop();
@@ -51,7 +51,7 @@ public class DirectDeducer {
                 else{
                     System.out.println("There are no rules to prove sub_target: "+subT);
                     return false;
-                }*/
+                }
                 return false;
             }
         }
@@ -60,13 +60,13 @@ public class DirectDeducer {
     }
 
 
-    private boolean inFact(LogicSystemStore store, Predicate p, Rule r, LinkedStack<Predicate> S, LinkedStack<Rule> R, Set<Predicate> proved){
+    private boolean inFact(LogicSystemStore store, Predicate p, Rule r, LinkedStack<Predicate> S, LinkedStack<Rule> R, Set<Predicate> deduced){
         //has reached conclusion.
         if(p.getName().equalsIgnoreCase(">")){
             Predicate c = S.top();
             S.pop();
             c.setVal(true); //deduced.
-            proved.add(c);
+            deduced.add(c);
             System.out.println("Predicate " + c + " was deduced from rule.");
             R.pop();//exit from rule.
             //It is subtarget
@@ -74,12 +74,12 @@ public class DirectDeducer {
                 S.pop();
                 Predicate t = S.top();
                 S.pop();
-                System.out.println("All subtargets were proved for predicate " + t);
+                System.out.println("All subtargets were deduced for predicate " + t);
                 HashMap<String, String> rep = replacements(t, c);
                 r = R.top();//goto to the connected rule.
                 replaceVars(r, rep);
                 t.setVal(true);
-                proved.add(t);
+                deduced.add(t);
             }
             return true;
         }
@@ -89,7 +89,7 @@ public class DirectDeducer {
             Predicate p2 = store.getPredicate(p.getName() + p.getSize());
             if(p.equals(p2)) {//predicates are equal when they have same names, argc, and they constants are equal.
                 System.out.println("Predicate " + p + "is in facts => It is TRUE");
-                proved.add(p);
+                deduced.add(p);
                 //COMPUTE AND MAKE REPLACEMENTS AT RULE.
                 HashMap<String, String> rep = replacements(p, p2);
                 replaceVars(r, rep);
