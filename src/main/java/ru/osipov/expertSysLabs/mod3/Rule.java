@@ -32,6 +32,14 @@ public class Rule implements IEquatable<Rule> {
     }
 
 
+    public Rule copy(){
+        Rule c = new Rule();
+        c.setConclusion(this.getConclusion().copy());
+        for(Predicate p : this.premises){
+            c.addPredicate(p.copy());
+        }
+        return c;
+    }
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

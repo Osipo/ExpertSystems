@@ -8,6 +8,12 @@ public class Atom {
         this.category = AtomCategory.CONSTANT;
     }
 
+    public Atom copy(){
+        Atom c = new Atom(this.getVal());
+        c.setCategory(this.getCategory());
+        return c;
+    }
+
     /* if atoms are constant => check them for equality else return true */
     @Override
     public boolean equals(Object ob){
@@ -38,7 +44,7 @@ public class Atom {
     }
 
     public String toString(){
-        return (category == AtomCategory.CONSTANT ? '@' : "") +
+        return (category == AtomCategory.CONSTANT ? "" : '@') +
                 val;
     }
 }

@@ -15,6 +15,20 @@ public class LogicSystemStore {
         this.target = null;
     }
 
+    public LogicSystemStore copy(){
+        LogicSystemStore c = new LogicSystemStore();
+        Iterator<Predicate> facts = this.getFacts();
+        while(facts.hasNext()){
+            c.addPredicate(facts.next().copy());
+        }
+        Iterator<Rule> rules = this.getRules();
+        while(rules.hasNext()){
+            c.addRule(rules.next().copy());
+        }
+        c.setTarget(this.getTarget().copy());
+        return c;
+    }
+
     public void setTarget(Predicate target) {
         this.target = target;
     }

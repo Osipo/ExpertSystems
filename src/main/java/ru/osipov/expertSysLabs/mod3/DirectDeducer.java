@@ -9,8 +9,7 @@ public class DirectDeducer {
     public boolean canDeduce(LogicSystemStore store){
         Predicate t = store.getTarget();
 
-
-        List<Predicate> proved = new ArrayList<>();
+        Set<Predicate> proved = new HashSet<>();
 
         boolean result = false;
 
@@ -36,7 +35,23 @@ public class DirectDeducer {
             S.pop();
             result = inFact(store, subT, c_r, S, R, proved);
             if(!result){
+                c_r = R.top();
                 System.out.println("Sub_target: "+subT+" cannot be proved!");
+                System.out.println("From rule: "+c_r);
+                /*
+                System.out.println("Try to find another rule with conclusion.");
+                while(!S.isEmpty() && !S.top().getName().equalsIgnoreCase("=")){
+                    S.pop();
+                }
+                if(!S.isEmpty()){
+                    S.pop();
+                    R.pop();
+                    store.removeRule(c_r);
+                }
+                else{
+                    System.out.println("There are no rules to prove sub_target: "+subT);
+                    return false;
+                }*/
                 return false;
             }
         }
@@ -45,7 +60,7 @@ public class DirectDeducer {
     }
 
 
-    private boolean inFact(LogicSystemStore store, Predicate p, Rule r, LinkedStack<Predicate> S, LinkedStack<Rule> R, List<Predicate> proved){
+    private boolean inFact(LogicSystemStore store, Predicate p, Rule r, LinkedStack<Predicate> S, LinkedStack<Rule> R, Set<Predicate> proved){
         //has reached conclusion.
         if(p.getName().equalsIgnoreCase(">")){
             Predicate c = S.top();
@@ -66,6 +81,7 @@ public class DirectDeducer {
                 t.setVal(true);
                 proved.add(t);
             }
+            return true;
         }
 
         //check facts first.
@@ -73,7 +89,7 @@ public class DirectDeducer {
             Predicate p2 = store.getPredicate(p.getName() + p.getSize());
             if(p.equals(p2)) {//predicates are equal when they have same names, argc, and they constants are equal.
                 System.out.println("Predicate " + p + "is in facts => It is TRUE");
-
+                proved.add(p);
                 //COMPUTE AND MAKE REPLACEMENTS AT RULE.
                 HashMap<String, String> rep = replacements(p, p2);
                 replaceVars(r, rep);
@@ -100,7 +116,6 @@ public class DirectDeducer {
             }
             return f;
         }
-        return false;
     }
 
     private boolean checkRule(LogicSystemStore store, Rule r, Predicate target, LinkedStack<Predicate> S, LinkedStack<Rule> R){

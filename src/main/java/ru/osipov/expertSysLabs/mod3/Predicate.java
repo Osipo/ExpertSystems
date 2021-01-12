@@ -14,6 +14,15 @@ public class Predicate {
         this.val = false;
     }
 
+    public Predicate copy(){
+        Predicate c = new Predicate(this.getName());
+        c.setVal(this.getVal());
+        for(Atom m : this.atoms){
+            c.addAtom(m.copy());
+        }
+        return c;
+    }
+
     public void setVal(boolean f) {
         val = f;
     }
@@ -76,12 +85,18 @@ public class Predicate {
         Atom a = null;
         while(ps.hasNext()){
             a = ps.next();
-            sb.append(a.getVal()).append(":").append(a.getCategory()).append(' ');
+            sb.append(a.toString()).append(' ');
+            //sb.append(a.getVal()).append(":").append(a.getCategory()).append(' ');
         }
 
         sb.append(")\n");
         ps = null;
         a = null;
         return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
     }
 }
